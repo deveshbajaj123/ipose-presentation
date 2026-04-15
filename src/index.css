@@ -124,3 +124,17 @@ body {
 .recharts-tooltip-wrapper {
   outline: none !important;
 }
+
+/* Hide scrollbar but keep scrollability */
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+/* iPhone safe area bottom padding */
+.safe-area-pb {
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}

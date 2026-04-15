@@ -5,6 +5,7 @@ import CareTimeline from './components/CareTimeline';
 import Insights from './components/Insights';
 import CarePlan from './components/CarePlan';
 import EmergencyBanner from './components/EmergencyBanner';
+import { MobileHeader, MobileBottomNav } from './components/MobileNav';
 
 const tabComponents = {
   dashboard: Dashboard,
@@ -26,22 +27,33 @@ export default function App() {
         <EmergencyBanner onDismiss={() => setEmergencyActive(false)} />
       )}
 
-      {/* Sidebar */}
-      <Sidebar
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-        onSimulateEmergency={() => setEmergencyActive(true)}
-      />
+      {/* Sidebar — desktop only */}
+      <div className="hidden md:flex">
+        <Sidebar
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+          onSimulateEmergency={() => setEmergencyActive(true)}
+        />
+      </div>
 
-      {/* Main content */}
-      <main
-        className="flex-1 overflow-y-auto"
-        style={{ marginTop: emergencyActive ? '160px' : 0, transition: 'margin-top 0.3s ease' }}
-      >
-        <div className="max-w-5xl mx-auto px-6 py-7">
-          <ActiveView />
-        </div>
-      </main>
+      {/* Mobile header + content + bottom nav */}
+      <div className="flex-1 flex flex-col min-w-0">
+        <MobileHeader onSimulateEmergency={() => setEmergencyActive(true)} />
+
+        <main
+          className="flex-1 overflow-y-auto"
+          style={{
+            marginTop: emergencyActive ? '160px' : 0,
+            transition: 'margin-top 0.3s ease',
+          }}
+        >
+          <div className="max-w-5xl mx-auto px-4 md:px-6 py-5 md:py-7 pb-24 md:pb-7">
+            <ActiveView />
+          </div>
+        </main>
+
+        <MobileBottomNav activeTab={activeTab} setActiveTab={setActiveTab} />
+      </div>
     </div>
   );
 }

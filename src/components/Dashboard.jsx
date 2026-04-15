@@ -209,7 +209,7 @@ export default function Dashboard() {
             View full history <ChevronRight size={14} />
           </button>
         </div>
-        <div className="grid grid-cols-2 xl:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-3 md:gap-4">
           {vitals.map(vital => (
             <VitalCard key={vital.id} vital={vital} />
           ))}

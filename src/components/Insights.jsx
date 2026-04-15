@@ -142,7 +142,7 @@ export default function Insights() {
             <span className="text-xs text-slate-400">Mon – Sun</span>
           </div>
           <p className="text-slate-400 text-xs mb-4">Systolic &amp; Diastolic (mmHg)</p>
-          <ResponsiveContainer width="100%" height={220}>
+          <ResponsiveContainer width="100%" height={190}>
             <LineChart data={bpTrendData} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" />
               <XAxis dataKey="day" tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />
@@ -170,7 +170,7 @@ export default function Insights() {
             </span>
           </div>
           <p className="text-slate-400 text-xs mb-4">% of scheduled medications taken on time per day</p>
-          <ResponsiveContainer width="100%" height={220}>
+          <ResponsiveContainer width="100%" height={190}>
             <BarChart data={adherenceData} margin={{ top: 5, right: 10, left: -10, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#f1f5f9" vertical={false} />
               <XAxis dataKey="day" tick={{ fontSize: 11, fill: '#94a3b8' }} axisLine={false} tickLine={false} />

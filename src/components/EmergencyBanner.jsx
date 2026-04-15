@@ -29,22 +29,20 @@ export default function EmergencyBanner({ onDismiss }) {
         </div>
 
         {/* Status row */}
-        <div className="mt-3 flex flex-wrap gap-3">
-          <div className="flex items-center gap-2 bg-white/15 rounded-lg px-3 py-2">
-            <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
-            <span className="text-sm font-semibold">Area Care Manager Dispatched</span>
-            <span className="text-red-200 text-xs">· Dr. Priya Nair en route</span>
-          </div>
-          <div className="flex items-center gap-2 bg-white/15 rounded-lg px-3 py-2">
-            <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
-            <span className="text-sm font-semibold">Ambulance on Standby</span>
-            <span className="text-red-200 text-xs">· Medulance notified</span>
-          </div>
-          <div className="flex items-center gap-2 bg-white/15 rounded-lg px-3 py-2">
-            <div className="w-2 h-2 rounded-full bg-white animate-pulse" />
-            <span className="text-sm font-semibold">Companion Anjali with Elder</span>
-            <span className="text-red-200 text-xs">· Situation being monitored</span>
-          </div>
+        <div className="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2">
+          {[
+            { label: 'Area Care Manager Dispatched', sub: 'Dr. Priya Nair en route' },
+            { label: 'Ambulance on Standby',         sub: 'Medulance notified' },
+            { label: 'Companion Anjali with Elder',  sub: 'Situation being monitored' },
+          ].map(item => (
+            <div key={item.label} className="flex items-center gap-2 bg-white/15 rounded-lg px-3 py-2">
+              <div className="w-2 h-2 rounded-full bg-white animate-pulse flex-shrink-0" />
+              <div className="min-w-0">
+                <p className="text-sm font-semibold leading-tight">{item.label}</p>
+                <p className="text-red-200 text-xs">{item.sub}</p>
+              </div>
+            </div>
+          ))}
         </div>
 
         {/* Action buttons */}
@@ -59,7 +57,7 @@ export default function EmergencyBanner({ onDismiss }) {
           </button>
           <button
             onClick={onDismiss}
-            className="flex items-center gap-2 bg-white/10 text-white font-semibold text-sm px-4 py-2 rounded-lg hover:bg-white/20 transition-colors ml-auto"
+            className="flex items-center gap-2 bg-white/10 text-white font-semibold text-sm px-4 py-2 rounded-lg hover:bg-white/20 transition-colors sm:ml-auto"
           >
             Dismiss Simulation
           </button>

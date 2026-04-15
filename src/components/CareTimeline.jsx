@@ -132,13 +132,13 @@ export default function CareTimeline() {
       </div>
 
       {/* Filter buttons */}
-      <div className="flex items-center gap-2 flex-wrap">
-        <Filter size={14} className="text-slate-400" />
+      <div className="flex items-center gap-2 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-none">
+        <Filter size={14} className="text-slate-400 flex-shrink-0" />
         {filters.map(f => (
           <button
             key={f.id}
             onClick={() => setActiveFilter(f.id)}
-            className={`text-sm font-medium px-3.5 py-1.5 rounded-full transition-all duration-150 ${
+            className={`flex-shrink-0 text-sm font-medium px-3.5 py-1.5 rounded-full transition-all duration-150 ${
               activeFilter === f.id
                 ? 'bg-blue-600 text-white shadow-sm shadow-blue-200'
                 : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'
