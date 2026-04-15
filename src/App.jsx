@@ -21,7 +21,7 @@ export default function App() {
   const ActiveView = tabComponents[activeTab] || Dashboard;
 
   return (
-    <div className="flex w-full min-h-screen bg-slate-50">
+    <div className="flex w-full min-h-screen bg-saarthi-bg">
       {/* Emergency overlay banner */}
       {emergencyActive && (
         <EmergencyBanner onDismiss={() => setEmergencyActive(false)} />

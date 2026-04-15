@@ -35,19 +35,19 @@ const iconMap = {
 
 const categoryConfig = {
   health: {
-    color: 'bg-blue-100 text-blue-600',
+    color: 'bg-saarthi-secondary text-saarthi-primary',
     label: 'Health / Vitals',
-    dot: 'bg-blue-500',
+    dot: 'bg-saarthi-accent',
   },
   medication: {
-    color: 'bg-violet-100 text-violet-600',
+    color: 'bg-saarthi-primary text-white',
     label: 'Medications',
-    dot: 'bg-violet-500',
+    dot: 'bg-saarthi-primary',
   },
   daily: {
-    color: 'bg-amber-100 text-amber-600',
+    color: 'bg-saarthi-accent text-white',
     label: 'Daily Life',
-    dot: 'bg-amber-500',
+    dot: 'bg-saarthi-accent',
   },
 };
 
@@ -66,7 +66,7 @@ function TimelineEntry({ entry, isLast }) {
     <div className="relative flex gap-4">
       {/* Vertical connector */}
       {!isLast && (
-        <div className="absolute left-5 top-10 bottom-0 w-0.5 bg-gradient-to-b from-slate-200 to-transparent" />
+        <div className="absolute left-5 top-10 bottom-0 w-0.5 bg-gradient-to-b from-saarthi-secondary/50 to-transparent" />
       )}
 
       {/* Icon bubble */}
@@ -78,7 +78,7 @@ function TimelineEntry({ entry, isLast }) {
       <div className={`flex-1 mb-5 rounded-2xl p-4 border transition-all duration-150 ${
         entry.flag
           ? 'bg-amber-50 border-amber-200 shadow-sm shadow-amber-100'
-          : 'bg-white border-slate-100 hover:border-slate-200 hover:shadow-sm'
+          : 'bg-white border-saarthi-secondary/20 hover:border-saarthi-secondary/50 hover:shadow-md hover:shadow-saarthi-primary/5'
       }`}>
         <div className="flex items-start justify-between gap-3 flex-wrap">
           <div className="flex items-center gap-2 flex-wrap">
@@ -138,10 +138,10 @@ export default function CareTimeline() {
           <button
             key={f.id}
             onClick={() => setActiveFilter(f.id)}
-            className={`flex-shrink-0 text-sm font-medium px-3.5 py-1.5 rounded-full transition-all duration-150 ${
+            className={`flex-shrink-0 text-sm font-bold px-4 py-1.5 rounded-full transition-all duration-150 ${
               activeFilter === f.id
-                ? 'bg-blue-600 text-white shadow-sm shadow-blue-200'
-                : 'bg-white border border-slate-200 text-slate-600 hover:border-slate-300'
+                ? 'bg-saarthi-primary text-white shadow-lg shadow-saarthi-primary/20'
+                : 'bg-white border border-saarthi-secondary/30 text-saarthi-primary/60 hover:border-saarthi-accent hover:text-saarthi-primary'
             }`}
           >
             {f.label}

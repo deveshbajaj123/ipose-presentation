@@ -32,21 +32,21 @@ const riskSeverityConfig = {
   medium: {
     bg: 'bg-amber-50',
     border: 'border-amber-200',
-    badge: 'bg-amber-100 text-amber-700',
+    badge: 'bg-amber-100 text-amber-800',
     icon: 'text-amber-500',
     label: 'Medium Risk',
   },
   low: {
-    bg: 'bg-blue-50',
-    border: 'border-blue-200',
-    badge: 'bg-blue-100 text-blue-700',
-    icon: 'text-blue-500',
+    bg: 'bg-saarthi-secondary/20',
+    border: 'border-saarthi-secondary/40',
+    badge: 'bg-saarthi-secondary text-saarthi-primary',
+    icon: 'text-saarthi-accent',
     label: 'Low Risk',
   },
   high: {
     bg: 'bg-red-50',
     border: 'border-red-200',
-    badge: 'bg-red-100 text-red-700',
+    badge: 'bg-red-100 text-red-800',
     icon: 'text-red-500',
     label: 'High Risk',
   },
@@ -100,14 +100,14 @@ export default function Insights() {
       </div>
 
       {/* AI Weekly Summary */}
-      <div className="glass-card rounded-2xl border border-slate-200 overflow-hidden">
-        <div className="bg-gradient-to-r from-indigo-600 to-blue-600 px-5 py-3 flex items-center gap-2">
-          <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-white text-xs font-bold">AI</div>
-          <p className="text-white font-semibold text-sm">AI Weekly Summary — Mr. Ramesh Sharma</p>
-          <span className={`ml-auto text-xs font-semibold px-2.5 py-1 rounded-full ${
+      <div className="glass-card rounded-2xl border border-saarthi-secondary/30 overflow-hidden shadow-xl shadow-saarthi-primary/5">
+        <div className="bg-gradient-to-r from-saarthi-primary to-saarthi-accent px-5 py-3 flex items-center gap-2">
+          <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-white text-[10px] font-black tracking-tighter">AI</div>
+          <p className="text-white font-bold text-sm">AI Weekly Summary — Mr. Ramesh Sharma</p>
+          <span className={`ml-auto text-[10px] font-bold px-2.5 py-1 rounded-full ${
             aiWeeklySummary.overallStatus === 'Stable'
-              ? 'bg-emerald-400/20 text-emerald-100'
-              : 'bg-amber-400/20 text-amber-100'
+              ? 'bg-white/20 text-white'
+              : 'bg-amber-400/20 text-white'
           }`}>
             {aiWeeklySummary.overallStatus}
           </span>
@@ -178,7 +178,7 @@ export default function Insights() {
               <Tooltip content={<CustomAdherenceTooltip />} />
               <ReferenceLine y={100} stroke="#e2e8f0" />
               <Bar dataKey="adherence" name="Adherence" radius={[6, 6, 0, 0]}
-                fill="#8b5cf6"
+                fill="#2d6a4f"
                 label={false}
               />
             </BarChart>
@@ -206,8 +206,8 @@ export default function Insights() {
             const RiskIcon = riskIconMap[risk.icon] || AlertTriangle;
             const cfg = riskSeverityConfig[risk.severity] || riskSeverityConfig.low;
             return (
-              <div key={risk.id} className={`rounded-2xl p-4 border ${cfg.bg} ${cfg.border} flex items-start gap-4`}>
-                <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${cfg.badge}`}>
+              <div key={risk.id} className={`rounded-2xl p-4 border ${cfg.bg} ${cfg.border} flex items-start gap-4 transition-all hover:shadow-md`}>
+                <div className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 ${cfg.badge} border border-saarthi-secondary/20`}>
                   <RiskIcon size={18} />
                 </div>
                 <div className="flex-1 min-w-0">

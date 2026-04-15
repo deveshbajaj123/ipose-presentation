@@ -25,11 +25,11 @@ const vitalIconMap = {
 
 const statusConfig = {
   green: {
-    bg: 'bg-emerald-50',
-    border: 'border-emerald-200',
-    dot: 'bg-emerald-500',
-    text: 'text-emerald-700',
-    badge: 'bg-emerald-100 text-emerald-700',
+    bg: 'bg-saarthi-secondary/20',
+    border: 'border-saarthi-secondary/50',
+    dot: 'bg-saarthi-accent',
+    text: 'text-saarthi-primary',
+    badge: 'bg-saarthi-secondary text-saarthi-primary',
   },
   yellow: {
     bg: 'bg-amber-50',
@@ -79,7 +79,7 @@ export default function Dashboard() {
     <div className="space-y-6 animate-fade-in">
 
       {/* Live Shift Banner */}
-      <div className="rounded-2xl bg-gradient-to-r from-emerald-600 to-teal-600 p-4 shadow-lg shadow-emerald-500/20 text-white">
+      <div className="rounded-2xl bg-gradient-to-r from-saarthi-primary to-saarthi-accent p-4 shadow-xl shadow-saarthi-primary/20 text-white">
         <div className="flex items-center justify-between flex-wrap gap-3">
           <div className="flex items-center gap-3">
             <div className="relative flex-shrink-0">
@@ -105,9 +105,9 @@ export default function Dashboard() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
 
         {/* Companion Card */}
-        <div className="glass-card rounded-2xl p-5 border border-slate-200">
+        <div className="glass-card rounded-2xl p-5 border border-saarthi-secondary/30">
           <div className="flex items-start gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-violet-400 to-purple-600 flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-purple-300/40 flex-shrink-0">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-saarthi-primary to-saarthi-accent flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-saarthi-primary/20 flex-shrink-0">
               {companion.avatar}
             </div>
             <div className="flex-1 min-w-0">
@@ -146,11 +146,11 @@ export default function Dashboard() {
           <p className="text-slate-600 text-sm mt-3 leading-relaxed line-clamp-3">{companion.bio}</p>
 
           <div className="mt-4 flex gap-2">
-            <button className="flex-1 flex items-center justify-center gap-2 bg-blue-600 text-white text-sm font-semibold py-2.5 rounded-xl hover:bg-blue-700 transition-colors shadow-sm shadow-blue-200">
+            <button className="flex-1 flex items-center justify-center gap-2 bg-saarthi-primary text-white text-sm font-semibold py-2.5 rounded-xl hover:bg-saarthi-accent transition-colors shadow-sm shadow-saarthi-primary/10">
               <MessageCircle size={15} />
               Message {companion.name.split(' ')[0]}
             </button>
-            <button className="flex items-center justify-center gap-2 bg-slate-100 text-slate-700 text-sm font-semibold py-2.5 px-4 rounded-xl hover:bg-slate-200 transition-colors">
+            <button className="flex items-center justify-center gap-2 bg-saarthi-secondary/50 text-saarthi-primary text-sm font-semibold py-2.5 px-4 rounded-xl hover:bg-saarthi-secondary transition-colors">
               <Phone size={15} />
               Call
             </button>
@@ -158,13 +158,13 @@ export default function Dashboard() {
         </div>
 
         {/* ACM Card */}
-        <div className="glass-card rounded-2xl p-5 border border-slate-200">
+        <div className="glass-card rounded-2xl p-5 border border-saarthi-secondary/30">
           <div className="flex items-center gap-2 mb-3">
-            <Shield size={15} className="text-blue-600" />
-            <p className="text-xs font-semibold text-blue-600 uppercase tracking-wider">Supervisory Layer</p>
+            <Shield size={15} className="text-saarthi-accent" />
+            <p className="text-xs font-bold text-saarthi-accent uppercase tracking-wider">Supervisory Layer</p>
           </div>
           <div className="flex items-start gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-blue-300/40 flex-shrink-0">
+            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-saarthi-accent to-saarthi-primary flex items-center justify-center text-white text-xl font-bold shadow-lg shadow-saarthi-accent/20 flex-shrink-0">
               {acm.avatar}
             </div>
             <div className="flex-1 min-w-0">
@@ -185,13 +185,13 @@ export default function Dashboard() {
             </div>
           </div>
 
-          <div className="mt-4 p-3 bg-blue-50 rounded-xl border border-blue-100">
-            <p className="text-xs text-blue-700 font-medium">
+          <div className="mt-4 p-3 bg-saarthi-secondary/20 rounded-xl border border-saarthi-secondary/40 text-center">
+            <p className="text-xs text-saarthi-primary font-semibold">
               The ACM is your clinical point of contact. Escalate if you notice concerns not addressed by the companion.
             </p>
           </div>
 
-          <button className="mt-4 w-full flex items-center justify-center gap-2 bg-slate-800 text-white text-sm font-semibold py-2.5 rounded-xl hover:bg-slate-700 transition-colors">
+          <button className="mt-4 w-full flex items-center justify-center gap-2 bg-saarthi-accent/10 border border-saarthi-accent/30 text-saarthi-primary text-sm font-bold py-2.5 rounded-xl hover:bg-saarthi-accent/20 transition-colors">
             <Phone size={15} />
             Escalate to Care Manager
           </button>
@@ -205,7 +205,7 @@ export default function Dashboard() {
             <h2 className="text-slate-800 font-bold text-base">Today's Vital Snapshot</h2>
             <p className="text-slate-500 text-xs mt-0.5">Latest readings for {elder.name}</p>
           </div>
-          <button className="flex items-center gap-1 text-blue-600 text-sm font-medium hover:underline">
+          <button className="flex items-center gap-1 text-saarthi-accent text-sm font-bold hover:underline">
             View full history <ChevronRight size={14} />
           </button>
         </div>

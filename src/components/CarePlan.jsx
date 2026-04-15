@@ -16,19 +16,19 @@ import {
 import { carePlan } from '../data/mockData';
 
 const categoryStyle = {
-  health: { color: 'bg-blue-100 text-blue-600', icon: Activity },
-  daily: { color: 'bg-amber-100 text-amber-700', icon: Coffee },
-  medication: { color: 'bg-violet-100 text-violet-600', icon: Pill },
+  health: { color: 'bg-saarthi-secondary/40 text-saarthi-primary', icon: Activity },
+  daily: { color: 'bg-saarthi-accent/10 text-saarthi-primary', icon: Coffee },
+  medication: { color: 'bg-saarthi-primary text-white', icon: Pill },
 };
 
 function TaskRow({ task }) {
   const cfg = categoryStyle[task.category] || categoryStyle.daily;
   const CatIcon = cfg.icon;
   return (
-    <div className={`flex items-center gap-3 py-3 px-4 rounded-xl transition-colors ${task.done ? 'bg-slate-50' : 'bg-white hover:bg-slate-50'} border ${task.done ? 'border-slate-100' : 'border-slate-200'}`}>
+    <div className={`flex items-center gap-3 py-3 px-4 rounded-xl transition-all ${task.done ? 'bg-saarthi-secondary/10 opacity-70' : 'bg-white hover:shadow-md hover:border-saarthi-secondary/50'} border ${task.done ? 'border-saarthi-secondary/20' : 'border-saarthi-secondary/30'}`}>
       {task.done
-        ? <CheckCircle size={18} className="text-emerald-500 flex-shrink-0" />
-        : <Circle size={18} className="text-slate-300 flex-shrink-0" />
+        ? <CheckCircle size={18} className="text-saarthi-accent flex-shrink-0" />
+        : <Circle size={18} className="text-saarthi-primary/20 flex-shrink-0" />
       }
       <div className={`w-7 h-7 rounded-lg flex items-center justify-center flex-shrink-0 ${cfg.color}`}>
         <CatIcon size={13} />
@@ -96,7 +96,7 @@ export default function CarePlan() {
                 <circle
                   cx="18" cy="18" r="15.9"
                   fill="none"
-                  stroke={pct === 100 ? '#10b981' : '#3b82f6'}
+                  stroke={pct === 100 ? '#1b4332' : '#2d6a4f'}
                   strokeWidth="3.5"
                   strokeDasharray={`${pct} ${100 - pct}`}
                   strokeDashoffset="0"
@@ -108,9 +108,9 @@ export default function CarePlan() {
         </div>
 
         {/* Progress bar */}
-        <div className="h-1.5 bg-slate-100">
+        <div className="h-1.5 bg-saarthi-secondary/30">
           <div
-            className="h-full bg-gradient-to-r from-blue-500 to-emerald-500 transition-all duration-500"
+            className="h-full bg-gradient-to-r from-saarthi-primary to-saarthi-accent transition-all duration-500"
             style={{ width: `${pct}%` }}
           />
         </div>
@@ -130,14 +130,14 @@ export default function CarePlan() {
         </div>
         <div className="space-y-3">
           {carePlan.prescriptions.map((rx, i) => (
-            <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-violet-50 border border-violet-100">
-              <div className="w-8 h-8 rounded-lg bg-violet-100 flex items-center justify-center flex-shrink-0">
-                <Pill size={14} className="text-violet-600" />
+            <div key={i} className="flex items-start gap-3 p-3 rounded-xl bg-saarthi-secondary/20 border border-saarthi-secondary/40">
+              <div className="w-8 h-8 rounded-lg bg-saarthi-primary flex items-center justify-center flex-shrink-0">
+                <Pill size={14} className="text-white" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-slate-800 font-semibold text-sm leading-tight">{rx.drug}</p>
-                <p className="text-violet-700 text-xs mt-0.5 font-medium">{rx.frequency}</p>
-                <p className="text-slate-400 text-xs mt-0.5">Prescribed by: {rx.prescribedBy}</p>
+                <p className="text-saarthi-primary font-bold text-sm leading-tight">{rx.drug}</p>
+                <p className="text-saarthi-accent text-xs mt-0.5 font-bold">{rx.frequency}</p>
+                <p className="text-saarthi-primary/40 text-xs mt-0.5 font-medium">Prescribed by: {rx.prescribedBy}</p>
               </div>
             </div>
           ))}
@@ -223,7 +223,7 @@ export default function CarePlan() {
                   phone={f.phone}
                   detail={null}
                   icon={Heart}
-                  accent="border-blue-100 bg-blue-50"
+                  accent="border-saarthi-secondary/50 bg-saarthi-secondary/20"
                 />
               ))}
             </div>

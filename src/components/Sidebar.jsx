@@ -20,32 +20,32 @@ const navItems = [
 
 export default function Sidebar({ activeTab, setActiveTab, onSimulateEmergency }) {
   return (
-    <aside className="w-64 flex-shrink-0 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 flex flex-col h-screen sticky top-0 overflow-y-auto">
+    <aside className="w-64 flex-shrink-0 bg-white/60 backdrop-blur-md border-r border-saarthi-secondary/20 flex flex-col h-screen sticky top-0 overflow-y-auto">
       {/* Logo */}
-      <div className="px-6 py-5 border-b border-slate-700/50">
+      <div className="px-6 py-5 border-b border-saarthi-secondary/30">
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-blue-500/25">
+          <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-saarthi-primary to-saarthi-accent flex items-center justify-center shadow-lg shadow-saarthi-primary/20">
             <Heart size={18} className="text-white fill-white" />
           </div>
           <div>
-            <h1 className="text-white font-bold text-lg leading-none" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
+            <h1 className="text-saarthi-primary font-bold text-lg leading-none" style={{ fontFamily: 'Plus Jakarta Sans, sans-serif' }}>
               Saarthi
             </h1>
-            <p className="text-slate-400 text-xs mt-0.5">Guardian Dashboard</p>
+            <p className="text-saarthi-accent/70 text-xs mt-0.5">Guardian Dashboard</p>
           </div>
         </div>
       </div>
 
       {/* Elder Profile */}
-      <div className="mx-4 mt-4 p-3 rounded-xl bg-slate-700/40 border border-slate-600/30">
-        <p className="text-slate-400 text-xs mb-1 uppercase tracking-wider font-medium">Monitoring</p>
+      <div className="mx-4 mt-4 p-3 rounded-xl bg-saarthi-secondary/30 border border-saarthi-secondary/50">
+        <p className="text-saarthi-primary/60 text-xs mb-1 uppercase tracking-wider font-medium">Monitoring</p>
         <div className="flex items-center gap-2.5">
-          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center text-white font-bold text-sm shadow">
+          <div className="w-9 h-9 rounded-full bg-gradient-to-br from-saarthi-primary to-saarthi-accent flex items-center justify-center text-white font-bold text-sm shadow">
             RS
           </div>
           <div className="min-w-0">
-            <p className="text-white text-sm font-semibold leading-tight truncate">{elder.name}</p>
-            <p className="text-slate-400 text-xs">{elder.age} yrs • Noida</p>
+            <p className="text-saarthi-primary text-sm font-semibold leading-tight truncate">{elder.name}</p>
+            <p className="text-saarthi-primary/60 text-xs">{elder.age} yrs • Noida</p>
           </div>
         </div>
         <div className="mt-2.5 flex items-center gap-1.5">
@@ -67,18 +67,18 @@ export default function Sidebar({ activeTab, setActiveTab, onSimulateEmergency }
               onClick={() => setActiveTab(item.id)}
               className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl transition-all duration-200 group text-left
                 ${isActive
-                  ? 'bg-blue-600 shadow-lg shadow-blue-600/30 text-white'
-                  : 'text-slate-400 hover:text-white hover:bg-slate-700/60'
+                  ? 'bg-saarthi-primary shadow-lg shadow-saarthi-primary/20 text-white'
+                  : 'text-saarthi-primary/60 hover:text-saarthi-primary hover:bg-saarthi-secondary/40'
                 }`}
             >
-              <Icon size={18} className={isActive ? 'text-white' : 'text-slate-500 group-hover:text-slate-300'} />
+              <Icon size={18} className={isActive ? 'text-white' : 'text-saarthi-primary/40 group-hover:text-saarthi-primary/70'} />
               <div className="flex-1 min-w-0">
                 <p className="text-sm font-medium leading-none">{item.label}</p>
-                <p className={`text-xs mt-0.5 truncate ${isActive ? 'text-blue-200' : 'text-slate-500 group-hover:text-slate-400'}`}>
+                <p className={`text-xs mt-0.5 truncate ${isActive ? 'text-saarthi-secondary/80' : 'text-saarthi-primary/40 group-hover:text-saarthi-primary/50'}`}>
                   {item.sublabel}
                 </p>
               </div>
-              {isActive && <ChevronRight size={14} className="text-blue-200 flex-shrink-0" />}
+              {isActive && <ChevronRight size={14} className="text-white/70 flex-shrink-0" />}
             </button>
           );
         })}
@@ -106,14 +106,14 @@ export default function Sidebar({ activeTab, setActiveTab, onSimulateEmergency }
 
         {/* Guardian Info */}
         <div className="mt-3 flex items-center gap-2.5">
-          <div className="w-8 h-8 rounded-full bg-indigo-600 flex items-center justify-center text-white text-xs font-bold">
+          <div className="w-8 h-8 rounded-full bg-saarthi-primary flex items-center justify-center text-white text-xs font-bold">
             {guardian.name.split(' ').map(n => n[0]).join('')}
           </div>
           <div className="flex-1 min-w-0">
-            <p className="text-slate-300 text-xs font-medium truncate">{guardian.name}</p>
-            <p className="text-slate-500 text-xs">{guardian.location}</p>
+            <p className="text-saarthi-primary text-xs font-medium truncate">{guardian.name}</p>
+            <p className="text-saarthi-primary/50 text-xs">{guardian.location}</p>
           </div>
-          <button className="text-slate-500 hover:text-slate-300 transition-colors">
+          <button className="text-saarthi-primary/40 hover:text-saarthi-primary transition-colors">
             <LogOut size={14} />
           </button>
         </div>

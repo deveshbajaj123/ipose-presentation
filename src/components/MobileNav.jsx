@@ -18,23 +18,23 @@ const tabs = [
 
 export function MobileHeader({ onSimulateEmergency }) {
   return (
-    <header className="md:hidden sticky top-0 z-30 bg-slate-900 px-4 py-3 flex items-center justify-between border-b border-slate-700/50">
+    <header className="md:hidden sticky top-0 z-30 bg-white/70 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-saarthi-secondary/30">
       {/* Logo */}
       <div className="flex items-center gap-2.5">
-        <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center shadow shadow-blue-500/30">
+        <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-saarthi-primary to-saarthi-accent flex items-center justify-center shadow shadow-saarthi-primary/20">
           <Heart size={15} className="text-white fill-white" />
         </div>
         <div>
-          <p className="text-white font-bold text-sm leading-none">Saarthi</p>
-          <p className="text-slate-400 text-xs">Guardian Dashboard</p>
+          <p className="text-saarthi-primary font-bold text-sm leading-none">Saarthi</p>
+          <p className="text-saarthi-accent/60 text-xs">Guardian Dashboard</p>
         </div>
       </div>
 
       {/* Elder chip + emergency */}
       <div className="flex items-center gap-2">
-        <div className="flex items-center gap-1.5 bg-slate-800 border border-slate-700 rounded-full px-2.5 py-1">
+        <div className="flex items-center gap-1.5 bg-saarthi-secondary/40 border border-saarthi-secondary/60 rounded-full px-2.5 py-1">
           <span className="live-dot" style={{ width: 6, height: 6 }} />
-          <span className="text-white text-xs font-medium">
+          <span className="text-saarthi-primary text-xs font-bold">
             {elder.name.replace('Mr. ', '')}
           </span>
         </div>
@@ -56,7 +56,7 @@ export function MobileHeader({ onSimulateEmergency }) {
 
 export function MobileBottomNav({ activeTab, setActiveTab }) {
   return (
-    <nav className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white border-t border-slate-200 safe-area-pb">
+    <nav className="md:hidden fixed bottom-0 inset-x-0 z-30 bg-white/80 backdrop-blur-md border-t border-saarthi-secondary/30 safe-area-pb">
       <div className="flex items-stretch">
         {tabs.map(tab => {
           const Icon = tab.icon;
@@ -66,14 +66,14 @@ export function MobileBottomNav({ activeTab, setActiveTab }) {
               key={tab.id}
               onClick={() => setActiveTab(tab.id)}
               className={`flex-1 flex flex-col items-center justify-center gap-1 py-2.5 transition-colors relative ${
-                isActive ? 'text-blue-600' : 'text-slate-400'
+                isActive ? 'text-saarthi-primary' : 'text-saarthi-muted'
               }`}
             >
               {isActive && (
-                <span className="absolute top-0 inset-x-3 h-0.5 bg-blue-600 rounded-b-full" />
+                <span className="absolute top-0 inset-x-4 h-0.5 bg-saarthi-accent rounded-b-full shadow-sm shadow-saarthi-accent/50" />
               )}
               <Icon size={20} strokeWidth={isActive ? 2.5 : 1.8} />
-              <span className={`text-[10px] font-medium leading-none ${isActive ? 'text-blue-600' : 'text-slate-400'}`}>
+              <span className={`text-[10px] font-bold leading-none ${isActive ? 'text-saarthi-primary' : 'text-saarthi-muted'}`}>
                 {tab.label}
               </span>
             </button>
